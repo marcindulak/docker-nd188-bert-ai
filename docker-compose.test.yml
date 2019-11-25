@@ -1,0 +1,9 @@
+version: '3'
+services:
+  sut:
+    build: .
+    command:
+      - /bin/bash
+      - -c
+      - |
+        python -c "import torch; print(torch.__file__)" | grep "torch"
