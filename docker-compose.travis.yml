@@ -1,7 +1,7 @@
 version: '3'
 services:
   nd188-bert-ai:
-    image: 'marcindulak/nd188-bert-ai:latest'
+    image: 'nd188-bert-ai:latest'
     ports:
       - "8888:8888"
     volumes:
