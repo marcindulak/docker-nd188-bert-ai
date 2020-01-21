@@ -12,10 +12,11 @@ The docker images are available at [dockerhub](https://hub.docker.com/r/marcindu
 
 First, make sure you are able to run the `docker run hello-world` example https://docs.docker.com/get-started/
 
-**Note** on MS Windows install https://hub.docker.com/editions/community/docker-ce-desktop-windows.
+**Note** on MS Windows install https://hub.docker.com/editions/community/docker-ce-desktop-windows, but
+check the MS Windows version requirements at https://docs.docker.com/docker-for-windows/install/.
 If on MS Windows you are getting 'image operating system "linux" cannot be used on this platform'
 follow https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-Consider using https://chocolatey.org/ as the package manager on MS Windows (it provides both docker and docker compose).
+Consider using https://chocolatey.org/ as the package manager on MS Windows (it provides both docker-desktop and docker-compose).
 
 ## Start the jupyter server using docker-compose (the recommended way)
 
@@ -26,7 +27,7 @@ docker-compose -f docker-compose.jupyter.yml up
 
 ## Start the jupyter server using docker
 
-Start the jupyter server on localhost:8888 using docker-compose
+Start the jupyter server on localhost:8888 using docker
 
 ```sh
 docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work marcindulak/nd188-bert-ai:latest
@@ -76,8 +77,9 @@ docker images
 
 # Docker image tagging convention
 
-The docker image is tagged with the datascience-notebook upstream version appended by a build number,
-for example the first docker image based on datascience-notebook version `1386e2046833` is tagged with `1386e2046833-1`.
+The docker image is tagged with the datascience-notebook upstream version, pytorch and cuda toolkit version appended by a build number,
+for example the first docker image based on datascience-notebook version `7a0c7325e470` which uses pytorch `1.4.0` and cuda toolkit `10.1`
+is tagged with `7a0c7325e470-1.4.0-10.1-1`.
 
 
 # Dependencies
@@ -94,5 +96,3 @@ https://github.com/jupyter/docker-stacks/tree/master/datascience-notebook
 
 
 # Todo
-
-Try to reduce the size of the image (it's ~8G)
